@@ -1,0 +1,53 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenido-contacto{
+    @include m.tablet { 
+        @include m.grid(2, v.$separacion);
+        background-image: url(../img/img/granos_cafe.jpg);
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: 40%;
+    }
+}
+
+.formulario{
+    .campo{
+        margin-bottom: 2rem;
+
+        &:last-of-type{
+            margin-bottom: 0;
+        }
+
+        label{
+            text-transform: uppercase;
+            display: block; //Toma todo el ancho de la pantalla y forza salto de linea
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        input:not([type="submit"]), //Selecciona todos los tipos input dentro de formulario menos el submit.
+            select{
+                width: 100%;
+                padding: 1rem;
+                border: 0.5rem solid v.$primario;
+            }
+        
+
+        input[type="submit"]{
+            background-color: v.$primario;
+            width: 100%;
+            border: none;
+            padding: 1rem;
+            color: v.$blanco;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
